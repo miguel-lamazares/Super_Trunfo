@@ -31,7 +31,7 @@ void mostrar_carta(char *estado, char *city, char *card_id, float *area, float *
 void calc_super_poder(int *ponto_turistico, unsigned long int *populacao, float *area, float *pib, float *DP, float *PC, float *super)
 {
     float new_dp;
-    new_dp = *populacao / *area;
+    new_dp = *area / *populacao;
     *super = *ponto_turistico + *populacao + *area + *pib + *PC + new_dp;
 }
 void carta()
@@ -72,7 +72,7 @@ void preencher_dados(char *estado, char *city, char *card_id, float *area, float
     fgets(city, 20, stdin);
     city[strcspn(city, "\n")] = 0;
 
-    printf("Digite o ID do cartão: ");
+    printf("Digite o ID do carta: ");
     fgets(card_id, 4, stdin);
     card_id[strcspn(card_id, "\n")] = 0;
 
@@ -161,8 +161,8 @@ void comparar_cartas(float *super, float *super1)
 void apresentar(float *area, float *pib, unsigned long int *populacao, int *ponto_turistico, float *DP, float *PC, float *super,
                 float *area1, float *pib1, unsigned long int *populacao1, int *ponto_turistico1, float *DP1, float *PC1, float *super1)
 {
-    printf(GREEN "______________________\n" RESET);
-    printf("Comparação dos atributos:\n");
+    printf(GREEN "______________________\n\n" RESET);
+    printf("Comparação dos atributos:\n\n");
 
     printf("Área: %s\n", (*area > *area1) ? "Carta 1 vence" : (*area < *area1) ? "Carta 2 vence"
                                                                                : "Empate");
@@ -174,11 +174,11 @@ void apresentar(float *area, float *pib, unsigned long int *populacao, int *pont
                                                                                                                                         : "Empate");
     printf("PIB per Capita: %s\n", (*PC > *PC1) ? "Carta 1 vence" : (*PC < *PC1) ? "Carta 2 vence"
                                                                                  : "Empate");
-    printf("Densidade Populacional: %s\n", (*DP > *DP1) ? "Carta 1 vence" : (*DP < *DP1) ? "Carta 2 vence"
+    printf("Densidade Populacional: %s\n", (*DP < *DP1) ? "Carta 1 vence" : (*DP > *DP1) ? "Carta 2 vence"
                                                                                          : "Empate");
     printf("Super Poder: %s\n", (*super > *super1) ? "Carta 1 vence" : (*super < *super1) ? "Carta 2 vence"
                                                                                           : "Empate");
-    printf(GREEN "______________________\n" RESET);
+    printf(GREEN "\n______________________\n" RESET);
 }
 
 int main()
@@ -212,6 +212,7 @@ int main()
     printf("Pressione Enter para visualizar a primeira carta\n");
     getchar();
     system("cls");
+   
     mostrar_carta(estado, city, card_id, &area, &pib, &populacao, &ponto_turistico, &DP, &PC, &super);
 
     printf(RESET "pressione Enter para criar a segunda carta\n");
@@ -236,7 +237,7 @@ int main()
 
     printf(BLUE "-----------------------------------------------------\n\n");
     printf(RESET "Comparando as cartas...\n\n");
-    printf(BLUE "-----------------------------------------------------\n" RESET "");
+    printf(BLUE "-----------------------------------------------------\n");
     system("pause");
     system("cls");
     comparar_cartas(&super, &super1);
@@ -244,7 +245,7 @@ int main()
                &area1, &pib1, &populacao1, &ponto_turistico1, &DP1, &PC1, &super1);
     printf("\n");
     printf(BLUE "-----------------------------------------------------\n" RESET "");
-
+    printf(RESET "\nPressione Enter para encerrar o jogo\n");
     system("pause");
     system("cls");
 
