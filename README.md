@@ -1,4 +1,4 @@
-# # Desafio Mestre
+# Desafio Mestre
 
 ## Documentação do Projeto 📄
 
