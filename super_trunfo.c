@@ -58,7 +58,7 @@ void carta()
 void calculo(float area, float pib, unsigned long int populacao, float *DP, float *PC)
 {
     *DP = populacao / area;
-    *PC = pib * 1000000 / populacao;
+    *PC = (pib * 1000000) / populacao;
 }
 
 void preencher_dados(char *estado, char *city, char *card_id, float *area, float *pib, unsigned long int *populacao, int *ponto_turistico)
