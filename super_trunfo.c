@@ -235,20 +235,20 @@ int main()
     system("cls");
 
     printf(BLUE "-----------------------------------------------------\n\n");
-    printf(RESET "Comparando as cartas...\n");
-    printf(BLUE "-----------------------------------------------------\n\n"RESET"");
+    printf(RESET "Comparando as cartas...\n\n");
+    printf(BLUE "-----------------------------------------------------\n" RESET "");
     system("pause");
     system("cls");
     comparar_cartas(&super, &super1);
     apresentar(&area, &pib, &populacao, &ponto_turistico, &DP, &PC, &super,
                &area1, &pib1, &populacao1, &ponto_turistico1, &DP1, &PC1, &super1);
     printf("\n");
-    printf(BLUE "-----------------------------------------------------\n"RESET"");
+    printf(BLUE "-----------------------------------------------------\n" RESET "");
 
     system("pause");
     system("cls");
 
-    printf(PURPLE"OBRIGADO POR JOGAR!\nDeseja jogar novamente? (s/n)\n"RESET"");
+    printf(PURPLE "OBRIGADO POR JOGAR!\nDeseja jogar novamente? (s/n)\n" RESET "");
     if (getchar() == 's')
     {
         system("cls");
@@ -257,13 +257,13 @@ int main()
     else if (getchar() == 'n')
     {
         printf("Obrigado por jogar!\n\nPressione Enter para sair...\n");
-        getchar();
+        system("pause");
         return 0;
     }
     else
     {
         printf("Opção inválida! Saindo do jogo...\n");
+        system("pause");
         return 0;
     }
-    
 }
